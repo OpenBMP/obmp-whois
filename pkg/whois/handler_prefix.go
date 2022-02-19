@@ -105,7 +105,7 @@ func (h PrefixHandler) process(db *sql.DB,
 	// Perform exact query or range if bits were given
 	if len(prefix) > 1 && len(prefix[1]) > 0 {
 		log.Debugf("Requesting exact query %s/%s", prefix[0], prefix[1])
-		fmt.Sprintf("= '%s'", args[0])
+		query = fmt.Sprintf(prefixQuery, fmt.Sprintf("= '%s'", args[0]), peer_like)
 
 	} else {
 		query = fmt.Sprintf(prefixQuery, fmt.Sprintf("&& '%s'", args[0]), peer_like)
