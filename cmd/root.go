@@ -68,20 +68,20 @@ func init() {
 	rootCmd.PersistentFlags().IntVarP(&config.ListeningPort, "port", "p", 43,
 		"Listening port")
 
-	rootCmd.PersistentFlags().StringVar(&config.PgHost, "pghost", viper.GetString("PGHOST"),
-		"Postgres Hostname, default is env PGHOST")
+	rootCmd.PersistentFlags().StringVar(&config.PgHost, "pghost", viper.GetString("POSTGRES_HOST"),
+		"Postgres Hostname, default is env POSTGRES_PORT")
 
-	rootCmd.PersistentFlags().IntVar(&config.PgPort, "pgport", viper.GetInt("PGPORT"),
+	rootCmd.PersistentFlags().IntVar(&config.PgPort, "pgport", viper.GetInt("POSTGRES_PORT"),
 		"Postgre port, default is PGPORT")
 
-	rootCmd.PersistentFlags().StringVar(&config.PgDbname, "pgdb", viper.GetString("PGDATABASE"),
-		"Postgres database name, default is PGDATABASE")
+	rootCmd.PersistentFlags().StringVar(&config.PgDbname, "pgdb", viper.GetString("POSTGRES_DB"),
+		"Postgres database name, default is POSTGRES_DB")
 
-	rootCmd.PersistentFlags().StringVar(&config.PgUser, "pguser", viper.GetString("PGUSER"),
-		"Postgres username, default is PGUSER")
+	rootCmd.PersistentFlags().StringVar(&config.PgUser, "pguser", viper.GetString("POSTGRES_USER"),
+		"Postgres username, default is POSTGRES_USER")
 
-	rootCmd.PersistentFlags().StringVar(&config.PgPassword, "pgpassword", viper.GetString("PGPASSWORD"),
-		"Postgres password, default is PGPASSWORD.")
+	rootCmd.PersistentFlags().StringVar(&config.PgPassword, "pgpassword", viper.GetString("POSTGRES_PASSWORD"),
+		"Postgres password, default is POSTGRES_PASSWORD.")
 
 	rootCmd.PersistentFlags().IntVarP(&config.MaxThreads, "threads", "t", 10,
 		"Max number of threads to handle active connections")
